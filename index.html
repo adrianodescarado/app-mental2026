@@ -22,9 +22,20 @@ body{
   padding:25px;
 }
 
+/* LOGIN */
+
 .login-box{
   text-align:center;
   margin-top:100px;
+  background:#111;
+  padding:40px;
+  border-radius:15px;
+  box-shadow:0 0 25px rgba(0,0,0,0.6);
+}
+
+.login-icon{
+  font-size:60px;
+  margin-bottom:10px;
 }
 
 input{
@@ -53,25 +64,19 @@ button:hover{
   opacity:0.9;
 }
 
+/* EBOOK */
+
 #ebook{
   display:none;
 }
 
-.capa{
-  text-align:center;
-  margin-top:60px;
-}
-
-.capa h1{
-  font-size:32px;
-  margin-bottom:10px;
-}
-
 .capabox{
+  text-align:center;
   background:#111;
-  padding:30px;
+  padding:40px;
   border-radius:15px;
   box-shadow:0 0 20px rgba(0,0,0,0.6);
+  margin-top:60px;
 }
 
 .nav{
@@ -98,10 +103,11 @@ p{
 <div class="container">
 
 <div id="login" class="login-box">
-<h2>🧠 App Mentalidade Blindada</h2>
+<div class="login-icon">🧠</div>
+<h2>App Mentalidade Blindada</h2>
 <p>🔐 Acesso Exclusivo</p>
 <input type="password" id="senha" placeholder="Digite sua senha">
-<button onclick="verificarSenha()">Entrar no Aplicativo</button>
+<button onclick="verificarSenha()">Entrar</button>
 <p id="erro" style="color:red;"></p>
 </div>
 
@@ -133,37 +139,26 @@ document.onkeydown = function(e) {
   if (e.ctrlKey && e.keyCode == 85) return false;
 };
 
-if(localStorage.getItem("acessoLiberado") === "true"){
-  liberarAcesso();
-}
-
 function verificarSenha(){
   const senhaDigitada = document.getElementById("senha").value;
   if(senhaDigitada === senhaCorreta){
-    localStorage.setItem("acessoLiberado", "true");
-    liberarAcesso();
+    document.getElementById("login").style.display = "none";
+    document.getElementById("ebook").style.display = "block";
+    mostrarPagina();
   } else {
     document.getElementById("erro").innerText = "Senha incorreta.";
   }
-}
-
-function liberarAcesso(){
-  document.getElementById("login").style.display = "none";
-  document.getElementById("ebook").style.display = "block";
-  mostrarPagina();
 }
 
 const paginas = [
 
 {
 conteudo: `
-<div class="capa">
 <div class="capabox">
 <h1>🧠 Mentalidade Blindada</h1>
 <p>🔥 Um Aplicativo Exclusivo para Reprogramar sua Forma de Pensar</p>
-<p>⚡ A transformação começa na mente.</p>
+<p>⚡ Sua transformação começa na mente.</p>
 <p>📈 Decida hoje quem você vai se tornar.</p>
-</div>
 </div>
 `
 },
@@ -174,15 +169,13 @@ conteudo: `
 
 <p>🧠 Tudo começa na mente. Antes de qualquer resultado existir na sua vida, ele já existia como pensamento.</p>
 
-<p>A maioria das pessoas vive no piloto automático 🚶‍♂️. Reage às circunstâncias, culpa fatores externos e nunca percebe que o verdadeiro campo de batalha está dentro da própria cabeça.</p>
+<p>A maioria das pessoas vive no piloto automático 🚶‍♂️, reagindo às circunstâncias sem perceber que a raiz de tudo está na própria programação mental.</p>
 
-<p>🔥 Sua realidade externa é reflexo direto da sua programação interna.</p>
+<p>🔥 Se você continuar pensando como sempre pensou, continuará vivendo como sempre viveu.</p>
 
-<p>Se você continua pensando como sempre pensou, continuará vivendo como sempre viveu.</p>
+<p>💡 Mentalidade blindada é desenvolver uma estrutura interna forte o suficiente para que críticas, crises e obstáculos não controlem sua identidade.</p>
 
-<p>💡 Mentalidade blindada significa desenvolver uma estrutura interna forte o suficiente para que críticas, crises e obstáculos não definam quem você é.</p>
-
-<p>🚀 Este aplicativo não é apenas leitura. É um processo de reconstrução mental.</p>
+<p>🚀 Aqui você começa a reconstrução da sua base mental.</p>
 `
 },
 
@@ -190,17 +183,15 @@ conteudo: `
 conteudo: `
 <h2>🛡️ Responsabilidade Total</h2>
 
-<p>⚖️ Enquanto você culpar o passado, o governo, a família ou a sorte, continuará entregando o controle da sua vida para fatores externos.</p>
+<p>⚖️ Assumir responsabilidade é assumir poder.</p>
 
-<p>Assumir responsabilidade não é assumir culpa. É assumir poder.</p>
+<p>Enquanto você culpa fatores externos, entrega sua força para eles.</p>
 
-<p>🔓 No momento em que você entende que tudo depende das suas decisões, algo muda internamente.</p>
+<p>🔓 Quando decide assumir controle, sua postura muda.</p>
 
-<p>Você deixa de ser espectador e passa a ser protagonista.</p>
+<p>Você deixa de reagir e começa a agir.</p>
 
-<p>📈 Pessoas com mentalidade blindada não esperam motivação. Elas criam disciplina.</p>
-
-<p>E disciplina constrói resultados consistentes.</p>
+<p>📈 Disciplina supera motivação. Constância supera emoção.</p>
 `
 }
 
