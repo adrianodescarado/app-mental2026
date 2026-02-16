@@ -1,0 +1,184 @@
+app mentalidade
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicativo Mentalidade Forte</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  width:90%;
+  max-width:600px;
+  background:#111;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 0 25px rgba(0,0,0,0.6);
+}
+
+h2{
+  text-align:center;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border-radius:8px;
+  border:none;
+  font-size:16px;
+}
+
+button{
+  margin-top:15px;
+  padding:12px;
+  width:100%;
+  border:none;
+  border-radius:8px;
+  background:#2c5364;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
+}
+
+#ebook{
+  display:none;
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+}
+
+.progress{
+  margin-top:10px;
+  font-size:14px;
+  opacity:0.8;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="login">
+<h2>🔐 Acesso Exclusivo</h2>
+<p>Digite sua senha:</p>
+<input type="password" id="senha" placeholder="Digite sua senha">
+<button onclick="verificarSenha()">Entrar</button>
+<p id="erro" style="color:red;"></p>
+</div>
+
+<div id="ebook">
+<h2 id="titulo"></h2>
+<p id="conteudo"></p>
+
+<div class="progress" id="progresso"></div>
+
+<div class="nav">
+<button onclick="anterior()">⬅</button>
+<button onclick="proxima()">➡</button>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const senhaCorreta = "1234"; // ALTERE AQUI
+
+// Bloqueio botão direito
+document.addEventListener("contextmenu", event => event.preventDefault());
+
+// Bloqueio F12 e atalhos devtools
+document.onkeydown = function(e) {
+  if (e.keyCode == 123) return false;
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false;
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 74) return false;
+  if (e.ctrlKey && e.keyCode == 85) return false;
+};
+
+// Verifica sessão salva
+if(localStorage.getItem("acessoLiberado") === "true"){
+  liberarAcesso();
+}
+
+function verificarSenha(){
+  const senhaDigitada = document.getElementById("senha").value;
+  if(senhaDigitada === senhaCorreta){
+    localStorage.setItem("acessoLiberado", "true");
+    liberarAcesso();
+  } else {
+    document.getElementById("erro").innerText = "Senha incorreta.";
+  }
+}
+
+function liberarAcesso(){
+  document.getElementById("login").style.display = "none";
+  document.getElementById("ebook").style.display = "block";
+  mostrarPagina();
+}
+
+const paginas = [
+{
+titulo: "1 - Mentalidade Define Destino",
+conteudo: "Sua realidade externa é reflexo direto da sua programação interna. Se você continuar pensando como sempre pensou, continuará vivendo como sempre viveu."
+},
+{
+titulo: "2 - Responsabilidade Total",
+conteudo: "Quando você assume total responsabilidade pela própria vida, você deixa de ser vítima das circunstâncias e se torna criador da própria história."
+},
+{
+titulo: "3 - Nova Identidade",
+conteudo: "Mudança verdadeira acontece quando você muda sua identidade. Não é sobre esforço temporário, é sobre decidir quem você é a partir de agora."
+}
+];
+
+let paginaAtual = 0;
+
+function mostrarPagina(){
+  document.getElementById("titulo").innerText = paginas[paginaAtual].titulo;
+  document.getElementById("conteudo").innerText = paginas[paginaAtual].conteudo;
+  document.getElementById("progresso").innerText =
+  "Página " + (paginaAtual+1) + " de " + paginas.length;
+}
+
+function proxima(){
+  if(paginaAtual < paginas.length -1){
+    paginaAtual++;
+    mostrarPagina();
+  }
+}
+
+function anterior(){
+  if(paginaAtual > 0){
+    paginaAtual--;
+    mostrarPagina();
+  }
+}
+
+</script>
+
+</body>
+</html>
