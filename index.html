@@ -6,31 +6,25 @@ app mentalidade
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aplicativo Mentalidade Forte</title>
+<title>App Mentalidade Blindada</title>
 
 <style>
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  background: linear-gradient(135deg,#141E30,#243B55);
   color:#fff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
 }
 
 .container{
-  width:90%;
-  max-width:600px;
-  background:#111;
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 0 25px rgba(0,0,0,0.6);
+  max-width:700px;
+  margin:auto;
+  padding:25px;
 }
 
-h2{
+.login-box{
   text-align:center;
+  margin-top:100px;
 }
 
 input{
@@ -48,10 +42,11 @@ button{
   width:100%;
   border:none;
   border-radius:8px;
-  background:#2c5364;
-  color:white;
+  background:#00c6ff;
+  color:black;
   font-size:16px;
   cursor:pointer;
+  font-weight:bold;
 }
 
 button:hover{
@@ -62,17 +57,38 @@ button:hover{
   display:none;
 }
 
+.capa{
+  text-align:center;
+  margin-top:60px;
+}
+
+.capa h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.capabox{
+  background:#111;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
 .nav{
   display:flex;
   justify-content:space-between;
-  margin-top:20px;
+  margin-top:30px;
 }
 
 .progress{
-  margin-top:10px;
-  font-size:14px;
-  opacity:0.8;
   text-align:center;
+  margin-top:15px;
+  opacity:0.7;
+}
+
+p{
+  line-height:1.6;
+  margin-top:15px;
 }
 </style>
 </head>
@@ -81,23 +97,23 @@ button:hover{
 
 <div class="container">
 
-<div id="login">
-<h2>🔐 Acesso Exclusivo</h2>
-<p>Digite sua senha:</p>
+<div id="login" class="login-box">
+<h2>🧠 App Mentalidade Blindada</h2>
+<p>🔐 Acesso Exclusivo</p>
 <input type="password" id="senha" placeholder="Digite sua senha">
-<button onclick="verificarSenha()">Entrar</button>
+<button onclick="verificarSenha()">Entrar no Aplicativo</button>
 <p id="erro" style="color:red;"></p>
 </div>
 
 <div id="ebook">
-<h2 id="titulo"></h2>
-<p id="conteudo"></p>
+
+<div id="conteudoArea"></div>
 
 <div class="progress" id="progresso"></div>
 
 <div class="nav">
-<button onclick="anterior()">⬅</button>
-<button onclick="proxima()">➡</button>
+<button onclick="anterior()">⬅ Voltar</button>
+<button onclick="proxima()">Próxima ➡</button>
 </div>
 
 </div>
@@ -108,10 +124,8 @@ button:hover{
 
 const senhaCorreta = "1234"; // ALTERE AQUI
 
-// Bloqueio botão direito
 document.addEventListener("contextmenu", event => event.preventDefault());
 
-// Bloqueio F12 e atalhos devtools
 document.onkeydown = function(e) {
   if (e.keyCode == 123) return false;
   if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false;
@@ -119,7 +133,6 @@ document.onkeydown = function(e) {
   if (e.ctrlKey && e.keyCode == 85) return false;
 };
 
-// Verifica sessão salva
 if(localStorage.getItem("acessoLiberado") === "true"){
   liberarAcesso();
 }
@@ -141,25 +154,62 @@ function liberarAcesso(){
 }
 
 const paginas = [
+
 {
-titulo: "1 - Mentalidade Define Destino",
-conteudo: "Sua realidade externa é reflexo direto da sua programação interna. Se você continuar pensando como sempre pensou, continuará vivendo como sempre viveu."
+conteudo: `
+<div class="capa">
+<div class="capabox">
+<h1>🧠 Mentalidade Blindada</h1>
+<p>🔥 Um Aplicativo Exclusivo para Reprogramar sua Forma de Pensar</p>
+<p>⚡ A transformação começa na mente.</p>
+<p>📈 Decida hoje quem você vai se tornar.</p>
+</div>
+</div>
+`
 },
+
 {
-titulo: "2 - Responsabilidade Total",
-conteudo: "Quando você assume total responsabilidade pela própria vida, você deixa de ser vítima das circunstâncias e se torna criador da própria história."
+conteudo: `
+<h2>📖 Introdução – Mentalidade Define Destino</h2>
+
+<p>🧠 Tudo começa na mente. Antes de qualquer resultado existir na sua vida, ele já existia como pensamento.</p>
+
+<p>A maioria das pessoas vive no piloto automático 🚶‍♂️. Reage às circunstâncias, culpa fatores externos e nunca percebe que o verdadeiro campo de batalha está dentro da própria cabeça.</p>
+
+<p>🔥 Sua realidade externa é reflexo direto da sua programação interna.</p>
+
+<p>Se você continua pensando como sempre pensou, continuará vivendo como sempre viveu.</p>
+
+<p>💡 Mentalidade blindada significa desenvolver uma estrutura interna forte o suficiente para que críticas, crises e obstáculos não definam quem você é.</p>
+
+<p>🚀 Este aplicativo não é apenas leitura. É um processo de reconstrução mental.</p>
+`
 },
+
 {
-titulo: "3 - Nova Identidade",
-conteudo: "Mudança verdadeira acontece quando você muda sua identidade. Não é sobre esforço temporário, é sobre decidir quem você é a partir de agora."
+conteudo: `
+<h2>🛡️ Responsabilidade Total</h2>
+
+<p>⚖️ Enquanto você culpar o passado, o governo, a família ou a sorte, continuará entregando o controle da sua vida para fatores externos.</p>
+
+<p>Assumir responsabilidade não é assumir culpa. É assumir poder.</p>
+
+<p>🔓 No momento em que você entende que tudo depende das suas decisões, algo muda internamente.</p>
+
+<p>Você deixa de ser espectador e passa a ser protagonista.</p>
+
+<p>📈 Pessoas com mentalidade blindada não esperam motivação. Elas criam disciplina.</p>
+
+<p>E disciplina constrói resultados consistentes.</p>
+`
 }
+
 ];
 
 let paginaAtual = 0;
 
 function mostrarPagina(){
-  document.getElementById("titulo").innerText = paginas[paginaAtual].titulo;
-  document.getElementById("conteudo").innerText = paginas[paginaAtual].conteudo;
+  document.getElementById("conteudoArea").innerHTML = paginas[paginaAtual].conteudo;
   document.getElementById("progresso").innerText =
   "Página " + (paginaAtual+1) + " de " + paginas.length;
 }
