@@ -19,8 +19,6 @@ body{
   padding:25px;
 }
 
-/* LOGIN */
-
 .login-box{
   text-align:center;
   margin-top:100px;
@@ -51,15 +49,9 @@ button{
   transition:0.3s;
 }
 
-button:hover{
-  opacity:0.9;
-}
+button:hover{opacity:0.9;}
 
-/* APP */
-
-#ebook{
-  display:none;
-}
+#ebook{display:none;}
 
 .capabox{
   text-align:center;
@@ -104,7 +96,6 @@ p{
 </head>
 
 <body>
-
 <div class="container">
 
 <div id="login" class="login-box">
@@ -123,7 +114,6 @@ p{
 </div>
 
 <div id="conteudoArea"></div>
-
 <div class="progress" id="progresso"></div>
 
 <div class="nav">
@@ -133,19 +123,16 @@ p{
 </div>
 
 </div>
-
 </div>
 
 <script>
 
 const senhaCorreta = "1234";
-
 let paginaAtual = 0;
 let pontos = localStorage.getItem("pontos") ? parseInt(localStorage.getItem("pontos")) : 0;
 
 function verificarSenha(){
-  const senhaDigitada = document.getElementById("senha").value;
-  if(senhaDigitada === senhaCorreta){
+  if(document.getElementById("senha").value === senhaCorreta){
     document.getElementById("login").style.display="none";
     document.getElementById("ebook").style.display="block";
     atualizarNivel();
@@ -156,105 +143,95 @@ function verificarSenha(){
 }
 
 function atualizarNivel(){
-  let nivel = "Iniciante";
-  if(pontos >= 200) nivel="Blindado";
-  if(pontos >= 500) nivel="Elite";
-  if(pontos >= 1000) nivel="Mestre Mental";
-  document.getElementById("nivel").innerText = nivel;
-  document.getElementById("pontos").innerText = pontos;
+  let nivel="Iniciante";
+  if(pontos>=200) nivel="Blindado";
+  if(pontos>=500) nivel="Elite";
+  if(pontos>=1000) nivel="Mestre Mental";
+  document.getElementById("nivel").innerText=nivel;
+  document.getElementById("pontos").innerText=pontos;
 }
 
 function marcarComoLido(){
-  pontos += 10;
-  localStorage.setItem("pontos", pontos);
+  pontos+=10;
+  localStorage.setItem("pontos",pontos);
   atualizarNivel();
 }
 
 const paginas = [
 
-{
-conteudo:`
-<div class="capabox">
+{conteudo:`<div class="capabox">
 <h1>🧠 Mentalidade Blindada</h1>
-<p>🔥 Sua transformação começa na mente.</p>
-<p>📈 Decida hoje quem você vai se tornar.</p>
-</div>
-`
-},
+<p>🔥 Sua mente é sua maior arma.</p>
+<p>📈 Decida hoje como você vai pensar.</p>
+</div>`},
 
-{
-conteudo:`
-<h2>🛡 Responsabilidade Total</h2>
-<p>Enquanto você culpa, perde poder.</p>
-<p>Quando assume, ganha controle.</p>
-`
-},
+{conteudo:`<h2>🛡 Responsabilidade Total</h2>
+<p>Você controla sua resposta.</p>
+<p>Quem assume o controle, assume o poder.</p>`},
 
-{
-conteudo:`
-<h2>🎯 Clareza é Poder</h2>
-<p>Movimento não é progresso.</p>
-<p>Direção é.</p>
-`
-},
+{conteudo:`<h2>🏭 Estratégia Ford – Eficiência</h2>
+<p>Henry Ford simplificou o complexo.</p>
+<p>Eliminar desperdício é acelerar resultados.</p>`},
 
-{
-conteudo:`
-<h2>🔥 Silêncio Estratégico</h2>
-<p>Responder menos.</p>
-<p>Observar mais.</p>
-`
-},
+{conteudo:`<h2>⚔ Sun Tzu – Conheça a Si Mesmo</h2>
+<p>Quem conhece suas fraquezas controla suas batalhas.</p>`},
 
-{
-conteudo:`
-<h2>💎 Valor Invisível</h2>
-<p>Você não é pago pelo tempo.</p>
-<p>É pago pela solução.</p>
-`
-},
-
-{
-conteudo:`
-<h2>🧠 Padrões Invisíveis</h2>
-<p>Identifique padrões.</p>
-<p>Quebre ciclos.</p>
-`
-},
-
-{
-conteudo:`
-<h2>⚡ Disciplina Diária</h2>
-<p>Motivação é temporária.</p>
-<p>Disciplina é permanente.</p>
-`
-},
-
-{
-conteudo:`
-<h2>🔥 Controle Emocional</h2>
-<p>Quem controla a reação controla o resultado.</p>
-`
-},
-
-{
-conteudo:`
-<h2>🎯 Foco Estratégico</h2>
-<p>Escolha um alvo.</p>
-<p>Acerte repetidamente.</p>
-`
-}
+{conteudo:`<h2>🎩 Lincoln – Resistência</h2>
+<p>Antes de vencer, Lincoln perdeu várias eleições.</p>
+<p>Persistência constrói líderes.</p>`},
 
 ];
 
+// GERAR ATÉ 37 PÁGINAS
+
+const temas = [
+"Disciplina diária supera motivação momentânea.",
+"Foco é dizer não ao que distrai.",
+"Controle emocional é vantagem competitiva.",
+"Antecipe problemas antes que eles cresçam.",
+"Decisão rápida, execução firme.",
+"Treine sua mente como um soldado treina para guerra.",
+"Seja estratégico, não reativo.",
+"Organização gera clareza.",
+"Planejamento reduz ansiedade.",
+"Vitória começa na preparação invisível.",
+"Consistência cria autoridade.",
+"Controle seu ambiente, controle seus resultados.",
+"Não negocie sua identidade.",
+"Pensamento calmo vence caos externo.",
+"Aprenda antes de agir.",
+"Se fortaleça em silêncio.",
+"Reaja menos, analise mais.",
+"Escolha batalhas inteligentes.",
+"Construa antes de mostrar.",
+"Menos emoção, mais estratégia.",
+"Autocontrole é poder.",
+"Seja difícil de abalar.",
+"Cada dia é treino mental.",
+"Fracasso ensina mais que vitória.",
+"Resiliência é músculo mental.",
+"Foco em solução, não em problema.",
+"Decisões moldam destino.",
+"Você é responsável pelo seu padrão.",
+"Silêncio estratégico cria vantagem.",
+"Domine sua rotina.",
+"Controle interno, sucesso externo.",
+"Seja previsível para você, imprevisível para os outros.",
+"Blindagem é constância."
+];
+
+temas.forEach(t=>{
+  paginas.push({conteudo:`<h2>🧠 Mentalidade Estratégica</h2><p>${t}</p>`});
+});
+
 function mostrarPagina(){
-  document.getElementById("conteudoArea").innerHTML = paginas[paginaAtual].conteudo;
-  document.getElementById("progresso").innerText =
+  document.getElementById("conteudoArea").innerHTML=paginas[paginaAtual].conteudo;
+  document.getElementById("progresso").innerText=
   "Página "+(paginaAtual+1)+" de "+paginas.length;
 }
 
 function proxima(){
-  if(paginaAtual < paginas.length-1){
+  if(paginaAtual<paginas.length-1){
     paginaAtual++;
     mostrarPagina();
   }
@@ -268,6 +245,5 @@ function anterior(){
 }
 
 </script>
-
 </body>
 </html>
