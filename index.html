@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Mentalidade Blindada</title>
+<title>Mentalidade Blindada</title>
 
 <style>
 body{
@@ -55,7 +55,7 @@ button:hover{
   opacity:0.9;
 }
 
-/* EBOOK */
+/* APP */
 
 #ebook{
   display:none;
@@ -180,56 +180,69 @@ function marcarComoLido(){
 
 const paginas = [
 
-{conteudo:`<div class="capabox">
+{
+conteudo:`
+<div class="capabox">
 <h1>🧠 Mentalidade Blindada</h1>
 <p>🔥 Sua transformação começa na mente.</p>
 <p>📈 Decida hoje quem você vai se tornar.</p>
-</div>`},
+</div>
+`
+},
 
-{conteudo:`<h2>🛡 Responsabilidade Total</h2>
+{
+conteudo:`
+<h2>🛡 Responsabilidade Total</h2>
 <p>Enquanto você culpa, perde poder.</p>
-<p>Quando assume, ganha controle.</p>`},
+<p>Quando assume, ganha controle.</p>
+`
+},
 
-{conteudo:`<h2>🎯 Clareza é Poder</h2>
+{
+conteudo:`
+<h2>🎯 Clareza é Poder</h2>
 <p>Movimento não é progresso.</p>
-<p>Direção é.</p>`},
+<p>Direção é.</p>
+`
+},
 
-{conteudo:`<h2>🔥 Silêncio Estratégico</h2>
-<p>Responder menos. Observar mais.</p>`},
+{
+conteudo:`
+<h2>🔥 Silêncio Estratégico</h2>
+<p>Responder menos.</p>
+<p>Observar mais.</p>
+`
+},
 
-{conteudo:`<h2>💎 Valor Invisível</h2>
+{
+conteudo:`
+<h2>💎 Valor Invisível</h2>
 <p>Você não é pago pelo tempo.</p>
-<p>É pago pela solução.</p>`},
+<p>É pago pela solução.</p>
+`
+},
 
-{conteudo:`<h2>🧠 Padrões</h2>
+{
+conteudo:`
+<h2>🧠 Padrões Invisíveis</h2>
 <p>Identifique padrões.</p>
-<p>Quebre ciclos.</p>`},
+<p>Quebre ciclos.</p>
+`
+},
+
+{
+conteudo:`
+<h2>👑 Área Premium <span class="premium">Premium</span></h2>
+<p>Blindagem emocional avançada.</p>
+<p>Controle de reação.</p>
+<p>Estratégia mental de alto nível.</p>
+`
+}
 
 ];
 
-// +30 histórias extras
-for(let i=1;i<=30;i++){
-  paginas.push({
-    conteudo:`
-    <h2>📅 Desafio Dia ${i}</h2>
-    <p>Hoje você vai agir com disciplina.</p>
-    <p>Controle sua mente antes que ela controle você.</p>
-    <p>Pequenas vitórias constroem blindagem.</p>
-    `
-  });
-}
-
-// Área Premium (agora liberada também)
-paginas.push({
-conteudo:`<h2>👑 Área Premium <span class="premium">Premium</span></h2>
-<p>Blindagem emocional avançada.</p>
-<p>Estratégia comercial mental.</p>
-<p>Controle absoluto da reação.</p>`
-});
-
 function mostrarPagina(){
   document.getElementById("conteudoArea").innerHTML = paginas[paginaAtual].conteudo;
-
   document.getElementById("progresso").innerText =
   "Página "+(paginaAtual+1)+" de "+paginas.length;
 }
