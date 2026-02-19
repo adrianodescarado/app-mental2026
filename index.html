@@ -14,7 +14,7 @@ body{
 }
 
 .container{
-  max-width:750px;
+  max-width:800px;
   margin:auto;
   padding:25px;
 }
@@ -44,7 +44,7 @@ input{
 
 button{
   margin-top:15px;
-  padding:12px;
+  padding:10px 18px;
   border:none;
   border-radius:8px;
   background:#00c6ff;
@@ -121,7 +121,7 @@ p{
 const senhaCorreta = "1234";
 
 function verificarSenha(){
-  const senhaDigitada = document.getElementById("senha").value;
+  const senhaDigitada = document.getElementById("senha").value.trim();
   if(senhaDigitada === senhaCorreta){
     document.getElementById("login").style.display = "none";
     document.getElementById("ebook").style.display = "block";
@@ -137,413 +137,123 @@ const paginas = [
 conteudo: `
 <div class="capabox">
 <h1>🧠 Mentalidade Blindada</h1>
-<p>🔥 Um Aplicativo Exclusivo para Reprogramar sua Forma de Pensar</p>
-<p>⚡ Sua transformação começa na mente.</p>
-<p>📈 Decida hoje quem você vai se tornar.</p>
+<p>🔥 Reprogramação mental estratégica</p>
+<p>⚡ Controle emocional, foco e expansão</p>
+<p>📈 Sua evolução começa agora</p>
 </div>
 `
 },
 
 {
 conteudo: `
-<h2>📖 Mentalidade Define Destino</h2>
-<p>Tudo começa na mente. Antes de qualquer resultado existir na sua vida, ele já existia como pensamento.</p>
-<p>A maioria vive reagindo às circunstâncias sem perceber que a raiz de tudo está na própria programação mental.</p>
-<p>Se você continuar pensando como sempre pensou, continuará vivendo como sempre viveu.</p>
-<p>Mentalidade blindada é desenvolver uma estrutura interna forte o suficiente para que crises não controlem sua identidade.</p>
+<h2>🏭 Estratégia de Henry Ford</h2>
+<p>Henry Ford não venceu por força, mas por simplificação.</p>
+<p>Enquanto outros complicavam, ele organizava processos.</p>
+<p>Mente blindada elimina ruído e executa com clareza.</p>
+<p>Complexidade cansa. Estrutura expande.</p>
 `
 },
 
 {
 conteudo: `
-<h2>🏭 A Lição de Henry Ford</h2>
-<p>Ford não inventou o carro. Ele simplificou o processo.</p>
-<p>Enquanto outros complicavam, ele buscava eficiência.</p>
-<p>Quem simplifica domina.</p>
-<p>Complexidade gera desgaste. Clareza gera expansão.</p>
+<h2>⚔ Estratégia Antecipada</h2>
+<p>Grandes estrategistas vencem antes da batalha começar.</p>
+<p>Preparação invisível gera domínio visível.</p>
+<p>Quem pensa à frente reduz risco.</p>
+<p>Mente forte não reage. Ela prevê.</p>
 `
 },
 
 {
 conteudo: `
-<h2>⚔ Estratégia Antes da Ação</h2>
-<p>Os maiores estrategistas entendem que a vitória começa antes do confronto.</p>
-<p>Preparação invisível gera resultado visível.</p>
-<p>Quem pensa alguns passos à frente reduz risco e ansiedade.</p>
-<p>Mente estratégica nunca reage por impulso.</p>
-`
-},
-
-{
-conteudo: `
-<h2>💪 Disciplina Moderna</h2>
+<h2>💪 Disciplina Estrutural</h2>
 <p>Motivação oscila. Disciplina constrói.</p>
-<p>Alta performance exige repetição diária, mesmo sem vontade.</p>
-<p>Quem controla hábitos controla resultados.</p>
-<p>Constância é superior à intensidade passageira.</p>
+<p>Alta performance é repetição controlada.</p>
+<p>Quem mantém padrão, mantém resultado.</p>
+<p>Constância cria autoridade.</p>
 `
 },
 
 {
 conteudo: `
-<h2>🚀 Mentalidade Digital</h2>
-<p>No mundo atual, visibilidade é estratégia.</p>
-<p>Quem se posiciona cria autoridade.</p>
-<p>Quem cria valor constrói audiência.</p>
-<p>Se você não aparece, não é lembrado.</p>
+<h2>🔥 <strong>Toguro</strong> – Intensidade e Constância</h2>
+<p>Corpo forte exige repetição diária.</p>
+<p>Mente forte também.</p>
+<p>Não é sobre vontade. É sobre padrão.</p>
+<p>Resistência física desenvolve resistência emocional.</p>
 `
 },
 
 {
 conteudo: `
-<h2>💰 Inteligência Financeira</h2>
-<p>Riqueza começa na mentalidade.</p>
-<p>Dinheiro é consequência de decisões repetidas.</p>
-<p>Gastar por impulso gera prisão.</p>
-<p>Investir gera expansão.</p>
+<h2>🏋️ <strong>Renato Cariani</strong> – Método e Estrutura</h2>
+<p>Evolução não é emoção. É método.</p>
+<p>Sem planejamento há esforço.</p>
+<p>Com planejamento há crescimento.</p>
+<p>Trate sua vida como projeto.</p>
 `
 },
 
 {
 conteudo: `
-<h2>🛡 Blindagem Contra Críticas</h2>
-<p>Quem cresce será criticado.</p>
-<p>Crítica não define identidade.</p>
-<p>Pessoas fortes filtram e evoluem.</p>
-<p>Seu valor está na sua constância.</p>
+<h2>💰 <strong>Primo Rico</strong> – Mentalidade Financeira</h2>
+<p>Dinheiro precisa trabalhar por você.</p>
+<p>Renda ativa limita. Ativos expandem.</p>
+<p>Educação financeira é blindagem.</p>
+<p>Liberdade começa no conhecimento.</p>
 `
 },
 
 {
 conteudo: `
-<h2>🔥 Mentalidade do Criador</h2>
-<p>O consumidor reage. O criador constrói.</p>
-<p>Quem cria controla o jogo.</p>
-<p>Produzir é mais poderoso do que apenas consumir.</p>
-<p>Construa algo todos os dias.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🎯 Foco é Poder</h2>
-<p>O mundo disputa sua atenção.</p>
-<p>Quem protege o foco ganha vantagem.</p>
-<p>Distração constante enfraquece qualquer talento.</p>
-<p>Concentração profunda acelera resultados.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🧠 A Mentalidade de Adriano Descarado</h2>
-<p>Não é sobre esperar oportunidade. É sobre criar movimento.</p>
-<p>Quem domina marketing domina percepção.</p>
-<p>Quem domina percepção domina valor.</p>
-<p>Blindagem mental é agir mesmo quando ninguém acredita.</p>
-<p>Autoridade nasce da repetição estratégica.</p>
-`
-}
-
-{
-conteudo: `
-<h2>🔥 A Expansão Estratégica – T-Car</h2>
-
-<p><strong>T-Car</strong> representa uma mentalidade de movimento constante.</p>
-
-<p>No mundo atual, quem fica parado desaparece. Crescimento exige exposição, posicionamento e repetição estratégica.</p>
-
-<p>Ele não cresce esperando validação. Cresce criando presença.</p>
-
-<p>🧠 Blindagem mental aqui significa entender que visibilidade não é ego — é construção de território.</p>
-
-<p>Quem ocupa espaço constrói autoridade.</p>
-`
-},
-
-{
-conteudo: `
-<h2>💪 Construção Física, Construção Mental – Toguro</h2>
-
-<p><strong>Toguro</strong> simboliza intensidade e disciplina.</p>
-
-<p>Corpo forte exige rotina. Mente forte também.</p>
-
-<p>Ninguém constrói físico blindado treinando só quando tem vontade.</p>
-
-<p>🧠 A mesma regra vale para negócios e vida: consistência supera motivação.</p>
-
-<p>Quem suporta dor controlada desenvolve resistência emocional.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🏋️ Estrutura e Evolução – Renato Cariani</h2>
-
-<p><strong>Renato Cariani</strong> mostra que evolução é processo técnico.</p>
-
-<p>Não é emoção. É método.</p>
-
-<p>Alta performance exige estratégia, planejamento e execução precisa.</p>
-
-<p>🧠 Blindagem mental significa tratar sua vida como projeto estruturado.</p>
-
-<p>Sem planejamento, existe esforço. Com planejamento, existe crescimento.</p>
-`
-},
-
-{
-conteudo: `
-<h2>📈 Posicionamento Inteligente – Júlio Balestrin</h2>
-
-<p><strong>Júlio Balestrin</strong> ensina algo poderoso: presença constrói percepção.</p>
-
-<p>Você é percebido antes de ser escutado.</p>
-
-<p>Postura, comunicação e imagem moldam oportunidades.</p>
-
-<p>🧠 Mentalidade blindada entende que posicionamento é ativo.</p>
-
-<p>Quem controla a narrativa controla o valor.</p>
-`
-},
-
-{
-conteudo: `
-<h2>💰 Inteligência Financeira – Primo Rico</h2>
-
-<p><strong>Primo Rico</strong> construiu autoridade ensinando algo simples: dinheiro precisa trabalhar por você.</p>
-
-<p>Quem vive apenas de esforço físico está limitado ao tempo.</p>
-
-<p>🧠 Blindagem financeira é estudar antes de investir.</p>
-
-<p>Conhecimento transforma renda em patrimônio.</p>
-
-<p>Liberdade financeira começa na mentalidade.</p>
-`
-},
-
-{
-conteudo: `
-<h2>⚖️ Consciência Realista – Primo Pobre</h2>
-
-<p><strong>Primo Pobre</strong> representa a clareza da realidade financeira brasileira.</p>
-
+<h2>⚖ <strong>Primo Pobre</strong> – Consciência Real</h2>
 <p>Nem todos começam com vantagem.</p>
-
 <p>Mas todos podem começar com consciência.</p>
-
-<p>🧠 Blindagem mental é aceitar a situação atual sem aceitar permanecer nela.</p>
-
-<p>Consciência gera mudança.</p>
+<p>Aceitar realidade é o primeiro passo.</p>
+<p>Consciência gera transformação.</p>
 `
 },
 
 {
 conteudo: `
-<h2>🎯 Marketing Estratégico – Marcos Paulo</h2>
-
-<p><strong>Marcos Paulo</strong> reforça que marketing é percepção estruturada.</p>
-
-<p>Quem domina tráfego domina alcance.</p>
-
-<p>Quem domina alcance domina oportunidade.</p>
-
-<p>🧠 Blindagem aqui é entender que audiência é ativo.</p>
-
-<p>Sem audiência, não há escala.</p>
+<h2>🎯 <strong>Roberto Justus</strong> – Postura Executiva</h2>
+<p>Autoridade não grita.</p>
+<p>Ela se impõe pela segurança.</p>
+<p>Postura influencia percepção.</p>
+<p>Quem controla presença controla ambiente.</p>
 `
 },
 
 {
 conteudo: `
-<h2>🎨 Marca e Criatividade – Eric Shibata</h2>
-
-<p><strong>Eric Shibata</strong> mostra que criatividade é ativo competitivo.</p>
-
-<p>Marca forte gera lembrança.</p>
-
-<p>Lembrança gera preferência.</p>
-
-<p>🧠 Blindagem mental moderna inclui aprender a comunicar com impacto.</p>
-
-<p>Ideia boa mal comunicada morre.</p>
+<h2>🚀 <strong>Tiago Finch</strong> – Escala Digital</h2>
+<p>Pensar grande muda decisões.</p>
+<p>Velocidade estratégica cria vantagem.</p>
+<p>Quem escala domina mercado.</p>
+<p>Limite mental é maior barreira.</p>
 `
 },
 
 {
 conteudo: `
-<h2>🏢 Visão Empresarial – João Adibe</h2>
-
-<p><strong>João Adibe</strong> representa expansão estruturada.</p>
-
-<p>Empresas crescem quando visão encontra execução.</p>
-
-<p>Não é apenas vender. É construir sistema.</p>
-
-<p>🧠 Blindagem mental empresarial significa pensar em escala.</p>
-
-<p>Sistema gera estabilidade.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🔥 Liderança Feminina – Karla Marques</h2>
-
-<p><strong>Karla Marques</strong> simboliza autoridade construída com consistência.</p>
-
-<p>Liderança exige postura firme e clareza de comunicação.</p>
-
-<p>🧠 Blindagem mental aqui é equilíbrio entre emoção e estratégia.</p>
-
-<p>Quem domina emoções domina ambientes.</p>
-`
-},
-
-{
-conteudo: `
-<h2>💼 Postura Executiva – Roberto Justus</h2>
-
-<p><strong>Roberto Justus</strong> mostra que postura influencia percepção.</p>
-
-<p>Executivos não negociam com insegurança.</p>
-
-<p>🧠 Blindagem mental é falar pouco e agir com precisão.</p>
-
-<p>Autoridade não grita. Ela se impõe pela segurança.</p>
-`
-},
-
-{
-conteudo: `
-<h2>⚡ Alta Performance – Joel Jota</h2>
-
-<p><strong>Joel Jota</strong> ensina disciplina de atleta aplicada à vida.</p>
-
-<p>Alta performance exige padrão elevado diário.</p>
-
-<p>🧠 Quem baixa o padrão baixa o resultado.</p>
-
-<p>Blindagem mental é manter padrão mesmo quando ninguém está vendo.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🚀 Escala Digital – Tiago Finch</h2>
-
-<p><strong>Tiago Finch</strong> representa escala agressiva e mentalidade de crescimento exponencial.</p>
-
-<p>Quem pensa pequeno executa pequeno.</p>
-
-<p>🧠 Blindagem mental moderna exige pensar grande e agir rápido.</p>
-
-<p>Velocidade estratégica gera vantagem.</p>
-`
-},
-
-{
-conteudo: `
-<h2>📚 Educação Digital – Alex Vargas</h2>
-
-<p><strong>Alex Vargas</strong> construiu autoridade ensinando passo a passo.</p>
-
-<p>Quem domina método reduz erro.</p>
-
-<p>🧠 Blindagem mental é aprender antes de executar.</p>
-
-<p>Conhecimento reduz improviso.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🎤 Lançamentos – Érico Rocha</h2>
-
-<p><strong>Érico Rocha</strong> reforça que estratégia de lançamento é preparação intensa seguida de execução concentrada.</p>
-
+<h2>🎤 <strong>Érico Rocha</strong> – Timing Estratégico</h2>
 <p>Grandes resultados acontecem em janelas específicas.</p>
-
-<p>🧠 Blindagem mental entende timing.</p>
-
-<p>Não é só trabalhar. É trabalhar no momento certo.</p>
+<p>Preparação intensa antecede explosão de vendas.</p>
+<p>Timing é ativo invisível.</p>
+<p>Quem entende momento domina resultado.</p>
 `
 },
 
 {
 conteudo: `
-<h2>📊 Marketing Estruturado – Conrado Adolpho</h2>
-
-<p><strong>Conrado Adolpho</strong> ensina que marketing não é sorte. É sistema.</p>
-
-<p>Processo gera previsibilidade.</p>
-
-<p>🧠 Blindagem mental empresarial significa sair do improviso e entrar no método.</p>
-
-<p>Sistema vence emoção.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🔥 Intensidade Jovem – Kaike Janiszewski</h2>
-
-<p><strong>Kaike Janiszewski</strong> representa intensidade aplicada cedo.</p>
-
-<p>Idade não limita mentalidade.</p>
-
-<p>🧠 Quem começa cedo e aprende rápido cria vantagem acumulada.</p>
-
-<p>Tempo é ativo estratégico.</p>
-`
-},
-
-{
-conteudo: `
-<h2>📹 Comunicação Digital – Tiago Fonseca</h2>
-
-<p><strong>Tiago Fonseca</strong> mostra que comunicação é habilidade treinável.</p>
-
-<p>Quem sabe comunicar influencia.</p>
-
-<p>🧠 Blindagem mental inclui aprender a transmitir ideias com clareza e impacto.</p>
-
-<p>Influência é ativo.</p>
-`
-},
-
-{
-conteudo: `
-<h2>💡 Inteligência Estratégica – Elias Mamam</h2>
-
-<p><strong>Elias Mamam</strong> simboliza raciocínio analítico aplicado ao digital.</p>
-
-<p>Dados reduzem emoção.</p>
-
-<p>🧠 Blindagem mental moderna exige interpretar números antes de tomar decisões.</p>
-
-<p>Análise gera precisão.</p>
-`
-},
-
-{
-conteudo: `
-<h2>🔥 Mentalidade Adriano Descarado</h2>
-
-<p><strong>Adriano Descarado</strong> representa ousadia estratégica.</p>
-
+<h2>🔥 <strong>Adriano Descarado</strong> – Mentalidade de Guerra</h2>
 <p>Marketing é guerra de percepção.</p>
-
-<p>Quem domina copy domina conversão.</p>
-
-<p>🧠 Blindagem mental é acreditar antes que o mercado valide.</p>
-
-<p>Autoridade nasce da repetição estratégica diária.</p>
+<p>Copy é arma estratégica.</p>
+<p>Quem domina narrativa domina conversão.</p>
+<p>Autoridade nasce da repetição diária.</p>
 `
 }
+
 ];
 
 let paginaAtual = 0;
