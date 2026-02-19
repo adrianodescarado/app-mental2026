@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentalidade Blindada</title>
+<title>App Mentalidade Blindada</title>
 
 <style>
 body{
@@ -28,6 +28,11 @@ body{
   box-shadow:0 0 25px rgba(0,0,0,0.6);
 }
 
+.login-icon{
+  font-size:60px;
+  margin-bottom:10px;
+}
+
 input{
   width:100%;
   padding:12px;
@@ -38,15 +43,16 @@ input{
 }
 
 button{
+  margin-top:15px;
   padding:12px;
+  width:100%;
   border:none;
   border-radius:8px;
   background:#00c6ff;
   color:black;
-  font-size:15px;
+  font-size:16px;
   cursor:pointer;
   font-weight:bold;
-  transition:0.3s;
 }
 
 button:hover{opacity:0.9;}
@@ -64,28 +70,14 @@ button:hover{opacity:0.9;}
 
 .nav{
   display:flex;
-  justify-content:center;
-  gap:15px;
+  justify-content:space-between;
   margin-top:30px;
-  flex-wrap:wrap;
-}
-
-.nav button{
-  min-width:110px;
-  padding:10px 18px;
-  font-size:14px;
 }
 
 .progress{
   text-align:center;
   margin-top:15px;
   opacity:0.7;
-}
-
-.score-box{
-  text-align:center;
-  margin-top:15px;
-  font-weight:bold;
 }
 
 p{
@@ -96,154 +88,213 @@ p{
 </head>
 
 <body>
+
 <div class="container">
 
 <div id="login" class="login-box">
-<h2>🧠 Mentalidade Blindada</h2>
+<div class="login-icon">🧠</div>
+<h2>App Mentalidade Blindada</h2>
 <p>🔐 Acesso Exclusivo</p>
 <input type="password" id="senha" placeholder="Digite sua senha">
-<button onclick="verificarSenha()" style="width:100%; margin-top:15px;">Entrar</button>
+<button onclick="verificarSenha()">Entrar</button>
 <p id="erro" style="color:red;"></p>
 </div>
 
 <div id="ebook">
-
-<div class="score-box">
-⭐ Pontos: <span id="pontos">0</span> |
-🏆 Nível: <span id="nivel">Iniciante</span>
-</div>
 
 <div id="conteudoArea"></div>
 <div class="progress" id="progresso"></div>
 
 <div class="nav">
 <button onclick="anterior()">⬅ Voltar</button>
-<button onclick="marcarComoLido()">✅ Concluir</button>
 <button onclick="proxima()">Próxima ➡</button>
 </div>
 
 </div>
+
 </div>
 
 <script>
 
 const senhaCorreta = "1234";
-let paginaAtual = 0;
-let pontos = localStorage.getItem("pontos") ? parseInt(localStorage.getItem("pontos")) : 0;
 
 function verificarSenha(){
-  if(document.getElementById("senha").value === senhaCorreta){
-    document.getElementById("login").style.display="none";
-    document.getElementById("ebook").style.display="block";
-    atualizarNivel();
+  const senhaDigitada = document.getElementById("senha").value;
+  if(senhaDigitada === senhaCorreta){
+    document.getElementById("login").style.display = "none";
+    document.getElementById("ebook").style.display = "block";
     mostrarPagina();
   } else {
-    document.getElementById("erro").innerText="Senha incorreta.";
+    document.getElementById("erro").innerText = "Senha incorreta.";
   }
-}
-
-function atualizarNivel(){
-  let nivel="Iniciante";
-  if(pontos>=200) nivel="Blindado";
-  if(pontos>=500) nivel="Elite";
-  if(pontos>=1000) nivel="Mestre Mental";
-  document.getElementById("nivel").innerText=nivel;
-  document.getElementById("pontos").innerText=pontos;
-}
-
-function marcarComoLido(){
-  pontos+=10;
-  localStorage.setItem("pontos",pontos);
-  atualizarNivel();
 }
 
 const paginas = [
 
-{conteudo:`<div class="capabox">
+{
+conteudo: `
+<div class="capabox">
 <h1>🧠 Mentalidade Blindada</h1>
-<p>🔥 Sua mente é sua maior arma.</p>
-<p>📈 Decida hoje como você vai pensar.</p>
-</div>`},
+<p>🔥 Um Aplicativo Exclusivo para Reprogramar sua Forma de Pensar</p>
+<p>⚡ Sua transformação começa na mente.</p>
+<p>📈 Decida hoje quem você vai se tornar.</p>
+</div>
+`
+},
 
-{conteudo:`<h2>🛡 Responsabilidade Total</h2>
-<p>Você controla sua resposta.</p>
-<p>Quem assume o controle, assume o poder.</p>`},
+{
+conteudo: `
+<h2>📖 Introdução – Mentalidade Define Destino</h2>
 
-{conteudo:`<h2>🏭 Estratégia Ford – Eficiência</h2>
-<p>Henry Ford simplificou o complexo.</p>
-<p>Eliminar desperdício é acelerar resultados.</p>`},
+<p>🧠 Tudo começa na mente. Antes de qualquer resultado existir na sua vida, ele já existia como pensamento.</p>
 
-{conteudo:`<h2>⚔ Sun Tzu – Conheça a Si Mesmo</h2>
-<p>Quem conhece suas fraquezas controla suas batalhas.</p>`},
+<p>A maioria das pessoas vive no piloto automático 🚶‍♂️, reagindo às circunstâncias sem perceber que a raiz de tudo está na própria programação mental.</p>
 
-{conteudo:`<h2>🎩 Lincoln – Resistência</h2>
-<p>Antes de vencer, Lincoln perdeu várias eleições.</p>
-<p>Persistência constrói líderes.</p>`},
+<p>🔥 Se você continuar pensando como sempre pensou, continuará vivendo como sempre viveu.</p>
+
+<p>💡 Mentalidade blindada é desenvolver uma estrutura interna forte o suficiente para que críticas, crises e obstáculos não controlem sua identidade.</p>
+
+<p>🚀 Aqui você começa a reconstrução da sua base mental.</p>
+`
+},
+
+{
+conteudo: `
+<h2>🛡️ Responsabilidade Total</h2>
+
+<p>⚖️ Assumir responsabilidade é assumir poder.</p>
+
+<p>Enquanto você culpa fatores externos, entrega sua força para eles.</p>
+
+<p>🔓 Quando decide assumir controle, sua postura muda.</p>
+
+<p>Você deixa de reagir e começa a agir.</p>
+
+<p>📈 Disciplina supera motivação. Constância supera emoção.</p>
+`
+},
+
+{
+conteudo: `
+<h2>🏭 A Estratégia de Ford – Simplificar Para Crescer</h2>
+
+<p>Henry Ford não inventou o automóvel. Ele simplificou o processo.</p>
+
+<p>Enquanto outros complicavam, ele buscava eficiência.</p>
+
+<p>🔥 A mente blindada entende que complexidade excessiva gera desgaste.</p>
+
+<p>Se você quer crescer, simplifique. Corte desperdícios. Elimine distrações.</p>
+
+<p>Produtividade não é fazer mais. É fazer o que importa com excelência.</p>
+`
+},
+
+{
+conteudo: `
+<h2>⚔️ Sun Tzu – Vencer Antes da Batalha</h2>
+
+<p>O general mais perigoso não é o mais forte. É o mais preparado.</p>
+
+<p>Sun Tzu ensinava que a verdadeira vitória acontece antes do confronto.</p>
+
+<p>🧠 Mentalidade blindada é preparação invisível.</p>
+
+<p>Antecipe cenários. Pense antes de agir. Planeje antes de reagir.</p>
+
+<p>Quem domina o próprio pensamento domina qualquer ambiente.</p>
+`
+},
+
+{
+conteudo: `
+<h2>🎩 Abraham Lincoln – Resistência em Meio ao Caos</h2>
+
+<p>Lincoln perdeu eleições, foi criticado publicamente e enfrentou guerra civil.</p>
+
+<p>Mesmo assim, manteve a postura.</p>
+
+<p>🔥 A força dele não estava nas circunstâncias. Estava na convicção interna.</p>
+
+<p>Blindagem mental é continuar firme quando ninguém está aplaudindo.</p>
+
+<p>Persistência constrói caráter. Caráter constrói liderança.</p>
+`
+},
+
+{
+conteudo: `
+<h2>🔥 Controle Emocional é Poder Silencioso</h2>
+
+<p>Quem reage por impulso entrega o controle ao ambiente.</p>
+
+<p>Quem pausa, pensa e responde estrategicamente mantém autoridade.</p>
+
+<p>🧠 Emoção descontrolada destrói decisões inteligentes.</p>
+
+<p>Blindagem é aprender a agir com frieza quando necessário.</p>
+
+<p>Calma não é fraqueza. É vantagem competitiva.</p>
+`
+},
+
+{
+conteudo: `
+<h2>🎯 Clareza Elimina Ansiedade</h2>
+
+<p>Muitas pessoas não estão sobrecarregadas. Estão confusas.</p>
+
+<p>Falta de direção gera ansiedade.</p>
+
+<p>🔥 Quando você define prioridades claras, a mente se acalma.</p>
+
+<p>Decisão gera foco. Foco gera progresso.</p>
+
+<p>Escolha um caminho e avance com consistência.</p>
+`
+},
+
+{
+conteudo: `
+<h2>🧠 Construção Invisível</h2>
+
+<p>Grandes resultados são consequência de pequenas ações repetidas.</p>
+
+<p>Você não vê a raiz crescendo, mas ela sustenta a árvore.</p>
+
+<p>Blindagem mental é trabalhar mesmo quando ninguém está vendo.</p>
+
+<p>Disciplina silenciosa constrói autoridade futura.</p>
+
+<p>O que você faz hoje molda quem você será amanhã.</p>
+`
+}
 
 ];
 
-// GERAR ATÉ 37 PÁGINAS
-
-const temas = [
-"Disciplina diária supera motivação momentânea.",
-"Foco é dizer não ao que distrai.",
-"Controle emocional é vantagem competitiva.",
-"Antecipe problemas antes que eles cresçam.",
-"Decisão rápida, execução firme.",
-"Treine sua mente como um soldado treina para guerra.",
-"Seja estratégico, não reativo.",
-"Organização gera clareza.",
-"Planejamento reduz ansiedade.",
-"Vitória começa na preparação invisível.",
-"Consistência cria autoridade.",
-"Controle seu ambiente, controle seus resultados.",
-"Não negocie sua identidade.",
-"Pensamento calmo vence caos externo.",
-"Aprenda antes de agir.",
-"Se fortaleça em silêncio.",
-"Reaja menos, analise mais.",
-"Escolha batalhas inteligentes.",
-"Construa antes de mostrar.",
-"Menos emoção, mais estratégia.",
-"Autocontrole é poder.",
-"Seja difícil de abalar.",
-"Cada dia é treino mental.",
-"Fracasso ensina mais que vitória.",
-"Resiliência é músculo mental.",
-"Foco em solução, não em problema.",
-"Decisões moldam destino.",
-"Você é responsável pelo seu padrão.",
-"Silêncio estratégico cria vantagem.",
-"Domine sua rotina.",
-"Controle interno, sucesso externo.",
-"Seja previsível para você, imprevisível para os outros.",
-"Blindagem é constância."
-];
-
-temas.forEach(t=>{
-  paginas.push({conteudo:`<h2>🧠 Mentalidade Estratégica</h2><p>${t}</p>`});
-});
+let paginaAtual = 0;
 
 function mostrarPagina(){
-  document.getElementById("conteudoArea").innerHTML=paginas[paginaAtual].conteudo;
-  document.getElementById("progresso").innerText=
-  "Página "+(paginaAtual+1)+" de "+paginas.length;
+  document.getElementById("conteudoArea").innerHTML = paginas[paginaAtual].conteudo;
+  document.getElementById("progresso").innerText =
+  "Página " + (paginaAtual+1) + " de " + paginas.length;
 }
 
 function proxima(){
-  if(paginaAtual<paginas.length-1){
+  if(paginaAtual < paginas.length -1){
     paginaAtual++;
     mostrarPagina();
   }
 }
 
 function anterior(){
-  if(paginaAtual>0){
+  if(paginaAtual > 0){
     paginaAtual--;
     mostrarPagina();
   }
 }
 
 </script>
+
 </body>
 </html>
